@@ -21,6 +21,7 @@ class People {
         return person;
     }
 
+
     static create (person) {
         const newPersonId = peopleData.length + 1;
         const newPerson = new People({id : newPersonId, ...person})
