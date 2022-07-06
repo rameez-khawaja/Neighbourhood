@@ -18,6 +18,19 @@ router.get("/people", (req, res) => {
   const {
     query: { minAge, maxAge, householdSize },
   } = req;
+
+  if (minAge) {
+    data = People.all.filter(
+      (person) => person.age >= minAge
+      );
+  }
+
+  if (maxAge) {
+    data = People.all.filter(
+      (person) => person.age <= maxAge
+    );
+  }
+
   if (minAge && maxAge) {
     data = People.all.filter(
       (person) => person.age >= minAge && person.age <= maxAge
